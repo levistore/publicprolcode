@@ -1,0 +1,245 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --sidebar-w: 248px;
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html,
+  body {
+    @apply h-full;
+  }
+
+  body {
+    @apply bg-bg text-text font-sans antialiased;
+    font-size: 15px;
+    line-height: 1.55;
+    overflow-x: hidden;
+  }
+
+  /* Substrat sinematik: dua radial statis, tanpa canvas/partikel */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background:
+      radial-gradient(900px 480px at 12% -8%, rgba(77, 141, 255, 0.09), transparent 70%),
+      radial-gradient(760px 420px at 100% 0%, rgba(150, 170, 210, 0.055), transparent 68%);
+  }
+
+  ::selection {
+    @apply bg-accent-soft text-text;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-bg;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full border-[3px] border-solid border-bg bg-line-strong;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply rounded-lg border border-line bg-bg-panel p-4;
+  }
+
+  .card {
+    @apply rounded-lg border border-line bg-bg-panel;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-sm border border-line-strong bg-bg-inset px-3.5 py-2 text-[13.5px] font-medium text-text transition-colors;
+  }
+  .btn:hover:not(:disabled) {
+    @apply border-[#3d434e] bg-bg-hover;
+  }
+  .btn:disabled {
+    @apply cursor-not-allowed opacity-50;
+  }
+  .btn-primary {
+    @apply border-accent bg-accent text-white;
+  }
+  .btn-primary:hover:not(:disabled) {
+    @apply border-accent-hover bg-accent-hover;
+  }
+  .btn-ghost {
+    @apply border-transparent bg-transparent text-text-secondary;
+  }
+  .btn-ghost:hover:not(:disabled) {
+    @apply bg-bg-hover text-text;
+  }
+  .btn-danger {
+    @apply border-transparent bg-transparent text-danger;
+  }
+  .btn-danger:hover:not(:disabled) {
+    @apply bg-danger-soft;
+  }
+  .btn-sm {
+    @apply rounded-md px-2.5 py-1.5 text-[12.5px];
+  }
+  .btn-icon {
+    @apply rounded-md border-transparent bg-transparent p-1.5 text-text-muted;
+  }
+  .btn-icon:hover:not(:disabled) {
+    @apply bg-bg-hover text-text;
+  }
+
+  .input,
+  .textarea,
+  .select {
+    @apply w-full rounded-sm border border-line bg-bg-inset px-3 py-2.5 text-sm text-text transition-colors;
+  }
+  .input::placeholder,
+  .textarea::placeholder {
+    @apply text-text-muted;
+  }
+  .input:focus,
+  .textarea:focus,
+  .select:focus {
+    @apply border-accent-border bg-[#14171d] outline-none;
+  }
+  .textarea {
+    @apply min-h-[96px] resize-y leading-relaxed;
+  }
+  .select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236f7681' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    @apply pr-[34px];
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 whitespace-nowrap rounded-full border border-line-strong bg-bg-inset px-2 py-0.5 text-[11px] font-semibold text-text-secondary;
+  }
+  .badge-high {
+    @apply border-danger/30 bg-danger-soft text-danger;
+  }
+  .badge-medium {
+    @apply border-warning/30 bg-warning-soft text-warning;
+  }
+  .badge-done,
+  .badge-success {
+    @apply border-success/30 bg-success-soft text-success;
+  }
+  .badge-progress {
+    @apply border-accent-border bg-accent-soft text-accent;
+  }
+
+  .chip {
+    @apply whitespace-nowrap rounded-full border border-line bg-bg-inset px-3 py-1.5 text-[12.5px] font-medium text-text-secondary transition-colors;
+  }
+  .chip:hover {
+    @apply border-line-strong text-text;
+  }
+  .chip[data-active='true'] {
+    @apply border-text bg-text text-[#13161a];
+  }
+
+  .nav-item {
+    @apply flex items-center gap-2.5 rounded-sm border border-transparent px-2.5 py-2 text-sm font-medium text-text-secondary transition-colors;
+  }
+  .nav-item:hover {
+    @apply bg-bg-hover text-text;
+  }
+  .nav-item[data-active='true'] {
+    @apply border-accent-border bg-accent-soft text-text;
+  }
+
+  .skeleton {
+    @apply animate-shimmer rounded-md;
+    background-image: linear-gradient(90deg, #1c1f25 25%, #24282f 50%, #1c1f25 75%);
+    background-size: 200% 100%;
+  }
+
+  .tick {
+    @apply mt-0.5 grid h-[18px] w-[18px] flex-none place-items-center rounded-[5px] border-[1.5px] border-line-strong bg-transparent text-transparent transition-all;
+  }
+  .tick:hover {
+    @apply border-accent;
+  }
+  .tick[data-on='true'] {
+    @apply border-success bg-success text-[#0e1512];
+  }
+}
+
+@layer utilities {
+  .eyebrow {
+    @apply text-[11px] font-semibold uppercase tracking-[0.09em] text-text-muted;
+  }
+  .mono-num {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Markdown ringan */
+.md h1,
+.md h2,
+.md h3 {
+  @apply mb-2 mt-3.5 font-display font-semibold;
+}
+.md h1 {
+  @apply text-[19px];
+}
+.md h2 {
+  @apply text-[16.5px];
+}
+.md h3 {
+  @apply text-[15px];
+}
+.md p {
+  @apply mb-2.5;
+}
+.md ul,
+.md ol {
+  @apply mb-2.5 pl-5;
+}
+.md li {
+  @apply mb-1;
+}
+.md code {
+  @apply rounded-[5px] border border-line bg-bg-inset px-1.5 py-0.5 font-mono text-[12.5px];
+}
+.md pre {
+  @apply mb-2.5 overflow-x-auto rounded-sm border border-line bg-bg-inset p-3;
+}
+.md pre code {
+  @apply border-0 bg-transparent p-0;
+}
+.md blockquote {
+  @apply mb-2.5 border-l-2 border-line-strong pl-3 text-text-secondary;
+}
+.md a {
+  @apply text-accent underline;
+}
+.md strong {
+  @apply font-semibold text-text;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
