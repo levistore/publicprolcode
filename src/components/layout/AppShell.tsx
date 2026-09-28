@@ -1,5 +1,6 @@
 'use client'
 
+import { Mascot } from '@/components/brand/Mascot'
 import { usePathname, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { Sidebar } from '@/components/layout/Sidebar'
@@ -53,8 +54,11 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
   if (loading || !user) {
     return (
-      <div className="grid min-h-screen place-items-center text-text-muted">
-        <span className="h-[26px] w-[26px] animate-spin rounded-full border-[2.5px] border-black/10 border-t-ink" />
+      <div className="grid min-h-screen place-items-center">
+        <div className="flex flex-col items-center gap-4">
+          <Mascot size={88} priority />
+          <span className="h-[22px] w-[22px] animate-spin rounded-full border-[2.5px] border-black/10 border-t-ink" />
+        </div>
       </div>
     )
   }

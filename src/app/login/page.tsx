@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { Mascot } from '@/components/brand/Mascot'
 import { useAuth } from '@/components/providers/AuthProvider'
 import { useToast } from '@/components/providers/ToastProvider'
 import {
@@ -72,9 +73,7 @@ export default function LoginPage() {
       <aside className="relative hidden flex-col justify-center overflow-hidden border-r border-line bg-bg-elevated p-11 md:flex">
         <div className="relative z-[1]">
           <div className="mb-7 flex items-center gap-2.5">
-            <div className="grid h-[30px] w-[30px] place-items-center rounded-[9px] bg-ink">
-              <IconGraduation size={16} className="text-white" />
-            </div>
+            <Mascot size={34} />
             <span className="font-display text-base font-bold tracking-[-0.02em]">ClassHub</span>
           </div>
 
@@ -94,11 +93,19 @@ export default function LoginPage() {
             </div>
           ))}
         </div>
+        <Mascot
+          size={300}
+          className="pointer-events-none absolute -bottom-16 -right-10 opacity-[0.96] md:w-[300px]"
+        />
         <div className="pointer-events-none absolute -bottom-40 -right-[140px] h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(17,17,17,0.06),transparent_65%)]" />
       </aside>
 
       <div className="grid place-items-center p-6 md:p-8">
         <div className="w-full max-w-[380px]">
+          <div className="mb-3 flex items-center gap-2.5 md:hidden">
+            <Mascot size={30} priority />
+            <span className="font-display text-[15px] font-bold tracking-[-0.02em]">ClassHub</span>
+          </div>
           <div className="font-display text-[23px] font-semibold tracking-[-0.02em]">
             {mode === 'login' ? 'Masuk' : 'Daftar'}
           </div>

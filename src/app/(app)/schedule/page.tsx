@@ -67,6 +67,7 @@ export default function SchedulePage() {
       ) : schedules.data.length === 0 ? (
         <div className="card">
           <EmptyState
+            mascot
             icon={IconCalendar}
             title="Belum ada jadwal"
             text="Atur jam pelajaran mingguan supaya dashboard tahu jam berapa kamu ke mana."

@@ -99,6 +99,7 @@ export default function NotesPage() {
       ) : filtered.length === 0 ? (
         <div className="card">
           <EmptyState
+            mascot
             icon={IconNotes}
             title={query ? 'Tidak ada catatan yang cocok' : archivedCount > 0 ? 'Semua catatan terarsip' : 'Belum ada catatan'}
             text={

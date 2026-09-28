@@ -159,6 +159,7 @@ export default function FilesPage() {
       ) : files.data.length === 0 ? (
         <div className="card">
           <EmptyState
+            mascot
             icon={IconFiles}
             title={hasFilter ? 'Tidak ada file yang cocok' : 'Belum ada file'}
             text={

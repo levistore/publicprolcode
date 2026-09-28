@@ -151,6 +151,7 @@ export default function TasksPage() {
       ) : filtered.length === 0 ? (
         <div className="card">
           <EmptyState
+            mascot
             icon={IconTasks}
             title={query || filter !== 'all' ? 'Tidak ada task di filter ini' : 'Belum ada task'}
             text={

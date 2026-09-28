@@ -1,5 +1,6 @@
 'use client'
 
+import { Mascot } from '@/components/brand/Mascot'
 import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { IconX, type IconComponent } from '@/components/icons'
@@ -110,18 +111,27 @@ export function EmptyState({
   title,
   text,
   action,
+  mascot = false,
 }: {
   icon?: IconComponent
   title: string
   text: string
   action?: React.ReactNode
+  /** Tampilkan maskot ClassHub sebagai identitas brand (prioritas di atas icon). */
+  mascot?: boolean
 }) {
   return (
     <div className="px-5 py-[34px] text-center">
-      {Icon && (
-        <div className="mx-auto mb-3 grid h-11 w-11 place-items-center rounded-md border border-line bg-bg-inset text-text-muted">
-          <Icon size={20} />
+      {mascot ? (
+        <div className="mx-auto mb-3 w-fit rounded-xl border border-line bg-bg-inset p-2">
+          <Mascot size={64} />
         </div>
+      ) : (
+        Icon && (
+          <div className="mx-auto mb-3 grid h-11 w-11 place-items-center rounded-md border border-line bg-bg-inset text-text-muted">
+            <Icon size={20} />
+          </div>
+        )
       )}
       <div className="mb-1.5 font-display text-[15px] font-semibold">{title}</div>
       <p className="mx-auto mb-3.5 max-w-[320px] text-[13.5px] text-text-muted">{text}</p>

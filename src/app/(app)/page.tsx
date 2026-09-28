@@ -213,6 +213,7 @@ export default function DashboardPage() {
 
                 {todaySchedule.length === 0 ? (
                   <EmptyState
+                    mascot
                     icon={IconCalendar}
                     title="Belum ada jadwal hari ini"
                     text="Atur jadwal pelajaran supaya dashboard selalu tahu jam berapa kamu ke mana."
