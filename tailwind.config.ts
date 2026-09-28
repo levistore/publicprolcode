@@ -1,44 +1,50 @@
 /** @type {import('tailwindcss').Config} */
+/* Theme: "ClassHub Light Orbit" — adaptasi gaya StenlyPay.
+   Light monokrom: bg off-white, teks near-black, aksen utama HITAM,
+   pill buttons, radius kecil, shadow minimal. */
 const config = {
   content: ['./src/**/*.{ts,tsx}'],
   theme: {
     extend: {
       colors: {
         bg: {
-          DEFAULT: '#101216',
-          elevated: '#16181d',
-          panel: '#1a1d23',
-          inset: '#12141a',
-          hover: '#21252c',
+          DEFAULT: '#f7f7f8',      // halaman (persis Stenly)
+          elevated: '#ffffff',     // kartu / panel naik
+          panel: '#ffffff',        // panel = putih bersih
+          inset: '#f1f1f3',        // input / inset track
+          hover: '#ededf0',        // hover halus
         },
         text: {
-          DEFAULT: '#f2f3f5',
-          secondary: '#a7adb8',
-          muted: '#6f7681',
+          DEFAULT: '#1a1a1a',      // near-black (Stenly)
+          secondary: '#52525b',    // zinc-600
+          muted: '#71717a',        // zinc-500
         },
         line: {
-          DEFAULT: '#262a31',
-          strong: '#343a43',
+          DEFAULT: '#e4e4e7',      // zinc-200 — border tipis
+          strong: '#111111',       // border tegas ala Stenly
         },
+        ink: '#111111',            // "hitam sebagai aksen" — tombol primer
         accent: {
-          DEFAULT: '#4d8dff',
-          soft: 'rgba(77,141,255,0.14)',
-          border: 'rgba(77,141,255,0.35)',
-          hover: '#3f7ff0',
+          DEFAULT: '#111111',      // aksen utama = hitam
+          soft: 'rgba(17,17,17,0.06)',
+          border: '#d4d4d8',
+          hover: '#2a2a2a',
         },
-        success: { DEFAULT: '#4ea87a', soft: 'rgba(78,168,122,0.14)' },
-        warning: { DEFAULT: '#d0a34a', soft: 'rgba(208,163,74,0.14)' },
-        danger: { DEFAULT: '#d4645c', soft: 'rgba(212,100,92,0.14)' },
+        success: { DEFAULT: '#16a34a', soft: 'rgba(22,163,74,0.10)' },
+        warning: { DEFAULT: '#ca8a04', soft: 'rgba(202,138,4,0.12)' },
+        danger: { DEFAULT: '#dc2626', soft: 'rgba(220,38,38,0.09)' },
+        info: '#2563eb',           // biru fungsional kecil (deadline/link)
       },
       fontFamily: {
-        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-        display: ['var(--font-display)', 'var(--font-inter)', 'sans-serif'],
+        sans: ['var(--font-geist)', 'Geist', 'system-ui', 'sans-serif'],
+        display: ['var(--font-geist)', 'Geist', 'system-ui', 'sans-serif'],
       },
       borderRadius: {
-        sm: '8px',
-        md: '12px',
-        lg: '16px',
+        sm: '10px',
+        md: '14px',
+        lg: '18px',
         xl: '22px',
+        pill: '9999px',
       },
       keyframes: {
         pageIn: {

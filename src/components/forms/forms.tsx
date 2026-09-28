@@ -433,7 +433,7 @@ export function NoteForm({ onClose, initial }: { onClose: () => void; initial?: 
 /* -------------------------------- Subject -------------------------------- */
 
 export const SUBJECT_COLORS = [
-  '#4d8dff', '#4ea87a', '#d0a34a', '#d4645c', '#9a7bd6', '#4db8c4', '#d67ba8', '#8a93a3',
+  '#111111', '#2563eb', '#16a34a', '#ca8a04', '#dc2626', '#7c3aed', '#0891b2', '#db2777',
 ]
 
 export function SubjectForm({ onClose, initial }: { onClose: () => void; initial?: Subject | null }) {
@@ -443,7 +443,7 @@ export function SubjectForm({ onClose, initial }: { onClose: () => void; initial
   const [name, setName] = useState(initial?.name ?? '')
   const [teacher, setTeacher] = useState(initial?.teacher ?? '')
   const [room, setRoom] = useState(initial?.room ?? '')
-  const [color, setColor] = useState(initial?.color ?? SUBJECT_COLORS[0] ?? '#4d8dff')
+  const [color, setColor] = useState(initial?.color ?? SUBJECT_COLORS[0] ?? '#111111')
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<string | null>(null)
 

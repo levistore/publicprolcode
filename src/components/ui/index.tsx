@@ -197,7 +197,7 @@ export function SubjectDot({ color }: { color?: string | null }) {
   return (
     <span
       className="h-2 w-2 flex-none rounded-full"
-      style={{ background: color ?? 'var(--tw-color-accent, #4d8dff)' }}
+      style={{ background: color ?? 'var(--tw-color-ink, #111111)' }}
       aria-hidden="true"
     />
   )
