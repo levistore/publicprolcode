@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import { useResource } from '@/hooks/useResource'
+import Image from 'next/image'
 import { useAuth } from '@/components/providers/AuthProvider'
 import { useToast } from '@/components/providers/ToastProvider'
 import {
@@ -153,7 +154,7 @@ export default function DashboardPage() {
   return (
     <div>
       {/* Greeting */}
-      <div className="mb-5">
+      <div className="mb-4">
         <h1 className="font-display text-[25px] font-semibold tracking-[-0.022em]">
           {now ? `${greetingFor(now)}, ${user?.displayName ?? 'Siswa'}` : 'Memuat…'}
         </h1>
@@ -162,6 +163,18 @@ export default function DashboardPage() {
             ? `${['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'][now.getDay()]}, ${now.getDate()} ${['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'][now.getMonth()]} ${now.getFullYear()}`
             : '—'}
         </p>
+      </div>
+
+      {/* Banner */}
+      <div className="mb-5 overflow-hidden rounded-[22px]">
+        <Image
+          src="/banner-dashboard.png"
+          alt="Banner ClassHub"
+          width={1672}
+          height={940}
+          priority
+          className="h-auto w-full"
+        />
       </div>
 
       {loading || !now ? (
