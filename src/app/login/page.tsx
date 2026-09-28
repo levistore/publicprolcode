@@ -72,7 +72,7 @@ export default function LoginPage() {
       <aside className="relative hidden flex-col justify-center overflow-hidden border-r border-line bg-bg-elevated p-11 md:flex">
         <div className="relative z-[1]">
           <div className="mb-7 flex items-center gap-2.5">
-            <div className="grid h-[30px] w-[30px] place-items-center rounded-[9px] bg-gradient-to-br from-accent to-[#2f6ad9]">
+            <div className="grid h-[30px] w-[30px] place-items-center rounded-[9px] bg-ink">
               <IconGraduation size={16} className="text-white" />
             </div>
             <span className="font-display text-base font-bold tracking-[-0.02em]">ClassHub</span>
@@ -94,7 +94,7 @@ export default function LoginPage() {
             </div>
           ))}
         </div>
-        <div className="pointer-events-none absolute -bottom-40 -right-[140px] h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(77,141,255,0.13),transparent_65%)]" />
+        <div className="pointer-events-none absolute -bottom-40 -right-[140px] h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(17,17,17,0.06),transparent_65%)]" />
       </aside>
 
       <div className="grid place-items-center p-6 md:p-8">
@@ -107,7 +107,7 @@ export default function LoginPage() {
           </p>
 
           {!configured && (
-            <div className="mb-3.5 rounded-md border border-danger/30 bg-danger-soft p-3.5 text-left text-[13.5px] text-[#eab6b2]">
+            <div className="mb-3.5 rounded-md border border-danger/30 bg-danger-soft p-3.5 text-left text-[13.5px] text-danger">
               <strong className="text-text">Mode demo lokal.</strong>
               <p className="mt-1">
                 Supabase belum dikonfigurasi. Data disimpan di browser ini saja.

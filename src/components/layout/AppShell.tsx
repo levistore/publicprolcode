@@ -54,7 +54,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   if (loading || !user) {
     return (
       <div className="grid min-h-screen place-items-center text-text-muted">
-        <span className="h-[26px] w-[26px] animate-spin rounded-full border-[2.5px] border-white/20 border-t-accent" />
+        <span className="h-[26px] w-[26px] animate-spin rounded-full border-[2.5px] border-black/10 border-t-ink" />
       </div>
     )
   }
@@ -66,7 +66,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       <Sidebar />
 
       <main className="relative z-[1] flex min-w-0 flex-1 flex-col">
-        <header className="sticky top-0 z-30 flex h-[54px] items-center gap-3 border-b border-line bg-[rgba(16,18,22,0.75)] px-3.5 backdrop-blur-[12px] md:h-[60px] md:px-[22px]">
+        <header className="sticky top-0 z-30 flex h-[54px] items-center gap-3 border-b border-line bg-[rgba(247,247,248,0.82)] px-3.5 backdrop-blur-[12px] md:h-[60px] md:px-[22px]">
           <span className="font-display text-[15px] font-semibold">{title}</span>
 
           <button
@@ -94,7 +94,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       <BottomNav />
 
       <button
-        className="fixed bottom-[calc(74px+var(--safe-bottom))] right-4 z-[45] hidden h-[54px] w-[54px] place-items-center rounded-full bg-accent text-white shadow-[0_10px_26px_-8px_rgba(77,141,255,0.9)] max-md:grid"
+        className="fixed bottom-[calc(74px+var(--safe-bottom))] right-4 z-[45] hidden h-[54px] w-[54px] place-items-center rounded-full bg-ink text-white shadow-[0_10px_26px_-8px_rgba(17,17,17,0.55)] max-md:grid"
         onClick={() => setQuickAdd('task')}
         aria-label="Tambah cepat"
       >

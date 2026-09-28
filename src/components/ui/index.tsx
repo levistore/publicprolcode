@@ -125,7 +125,7 @@ export function EmptyState({
 export function ErrorState({ message, onRetry }: { message: string; onRetry?: () => void }) {
   return (
     <div
-      className="rounded-md border border-danger/30 bg-danger-soft p-3.5 text-center text-[13.5px] text-[#eab6b2]"
+      className="rounded-md border border-danger/30 bg-danger-soft p-3.5 text-center text-[13.5px] text-danger"
       role="alert"
     >
       <p>Tidak dapat memuat data.</p>
@@ -159,7 +159,7 @@ export function Skeleton({ rows = 3 }: { rows?: number }) {
 export function Spinner({ label }: { label?: string }) {
   return (
     <div className="flex items-center gap-2.5 p-5 text-[13.5px] text-text-muted">
-      <span className="h-[26px] w-[26px] animate-spin rounded-full border-[2.5px] border-white/20 border-t-accent" />
+      <span className="h-[26px] w-[26px] animate-spin rounded-full border-[2.5px] border-black/10 border-t-ink" />
       {label}
     </div>
   )

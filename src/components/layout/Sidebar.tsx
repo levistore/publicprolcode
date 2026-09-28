@@ -64,7 +64,7 @@ export function Sidebar() {
   return (
     <aside className="sticky top-0 hidden h-screen w-[248px] flex-none flex-col gap-1 border-r border-line bg-bg-elevated p-5 py-5 md:flex">
       <div className="mb-5 flex items-center gap-2.5 px-2.5">
-        <div className="grid h-[30px] w-[30px] flex-none place-items-center rounded-[9px] bg-gradient-to-br from-accent to-[#2f6ad9] shadow-[0_4px_14px_-6px_rgba(77,141,255,0.8)]">
+        <div className="grid h-[30px] w-[30px] flex-none place-items-center rounded-[9px] bg-ink shadow-[0_4px_14px_-6px_rgba(17,17,17,0.5)]">
           <IconGraduation size={16} className="text-white" />
         </div>
         <span className="font-display text-base font-bold tracking-[-0.02em]">ClassHub</span>

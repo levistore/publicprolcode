@@ -38,7 +38,7 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
           <div
             key={t.id}
             className={`animate-toastIn w-full rounded-md border bg-bg-panel px-3.5 py-2.5 text-center text-[13.5px] shadow-lg ${
-              t.kind === 'error' ? 'border-danger/40 text-[#f0b7b3]' : 'border-line-strong text-text'
+              t.kind === 'error' ? 'border-danger/40 text-danger' : 'border-line-strong text-text'
             }`}
           >
             {t.message}

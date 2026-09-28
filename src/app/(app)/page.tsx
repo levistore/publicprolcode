@@ -277,7 +277,7 @@ export default function DashboardPage() {
                           key={t.id}
                           className={`flex items-start gap-3 border-b border-line px-3.5 py-3 last:border-b-0 ${
                             overdue ? 'border-l-2 border-l-danger bg-[linear-gradient(90deg,rgba(212,100,92,0.07),transparent_40%)]'
-                              : dueSoon ? 'border-l-2 border-l-warning bg-[linear-gradient(90deg,rgba(208,163,74,0.06),transparent_40%)]' : ''
+                              : dueSoon ? 'border-l-2 border-l-warning bg-warning-soft' : ''
                           }`}
                         >
                           <button
