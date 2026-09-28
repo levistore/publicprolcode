@@ -1,6 +1,7 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { IconX, type IconComponent } from '@/components/icons'
 
 /* ---------------------------------- Modal ---------------------------------- */
@@ -28,31 +29,40 @@ export function Modal({
     }
   }, [onClose])
 
-  return (
+  // Portal ke <body> supaya modal TIDAK jadi korban containing-block
+  // dari ancestor manapun (transform/backdrop-filter/overflow), yang
+  // membuat `fixed inset-0` tidak lagi relatif ke viewport — penyebab
+  // dialog jadwal/catatan terpotong di mobile.
+  const [host] = useState(() => (typeof document !== 'undefined' ? document.body : null))
+  if (!host) return null
+
+  return createPortal(
     <div
-      className="fixed inset-0 z-[100] flex animate-fadeIn items-end justify-center bg-[rgba(8,9,12,0.68)] p-0 backdrop-blur-[3px] md:items-center md:p-4"
+      className="fixed inset-0 z-[100] flex animate-fadeIn items-center justify-center bg-[rgba(8,9,12,0.68)] p-0 backdrop-blur-[3px] md:p-4"
+      style={{ alignItems: 'flex-end' }}
       onMouseDown={(e) => e.target === e.currentTarget && onClose()}
     >
       <div
-        className="max-h-[92vh] w-full animate-sheetIn overflow-y-auto rounded-t-xl border border-line-strong bg-bg-elevated shadow-2xl md:max-h-[88vh] md:max-w-[520px] md:animate-modalIn md:rounded-xl"
+        className="flex max-h-[100dvh] w-full animate-sheetIn flex-col overflow-hidden rounded-t-xl border border-line-strong bg-bg-elevated shadow-2xl md:max-h-[88vh] md:max-w-[520px] md:animate-modalIn md:rounded-xl"
         role="dialog"
         aria-modal="true"
         aria-label={title}
       >
-        <div className="sticky top-0 z-[2] flex items-center justify-between rounded-t-xl border-b border-line bg-bg-elevated px-[18px] py-4">
+        <div className="relative flex-none rounded-t-xl border-b border-line bg-bg-elevated px-[18px] py-4 pr-12">
           <h3 className="font-display text-base font-semibold">{title}</h3>
-          <button className="btn btn-icon" onClick={onClose} aria-label="Tutup">
+          <button className="btn btn-icon absolute right-3 top-3" onClick={onClose} aria-label="Tutup">
             <IconX />
           </button>
         </div>
-        <div className="p-[18px]">{children}</div>
+        <div className="min-h-0 flex-1 overflow-y-auto p-[18px]">{children}</div>
         {footer && (
-          <div className="sticky bottom-0 flex justify-end gap-2.5 rounded-b-xl border-t border-line bg-bg-elevated px-[18px] py-3.5 pb-[calc(14px+var(--safe-bottom))] md:pb-3.5">
+          <div className="flex-none border-t border-line bg-bg-elevated px-[18px] py-3.5 pb-[calc(14px+var(--safe-bottom))] md:pb-3.5">
             {footer}
           </div>
         )}
       </div>
-    </div>
+    </div>,
+    host,
   )
 }
 
